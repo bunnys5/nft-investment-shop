@@ -10,13 +10,31 @@
           crypto-collectibles
         </div>
         <div class="content-button">
-          <Button label="Connect Wallet" rounded style="border-radius: 30px" />
           <Button
-            label="Create NFTs"
-            severity="info"
-            text
-            style="border-radius: none; background: none; border: none"
+            label="Connect Wallet"
+            rounded
+            style="border-radius: 30px; font-family: 'Inter'"
           />
+          <div class="button-arrow">
+            <Button
+              severity="info"
+              text
+              style="
+                border-radius: none;
+                background: none;
+                border: none;
+                font-family: 'Inter'  display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #15BFFD;
+                font-weight: 500;
+              "
+              >Create NFTs<Icon
+                name="uil:arrow-right"
+                size="22px"
+                color="#15BFFD"
+            /></Button>
+          </div>
         </div>
       </div>
       <div class="content-2-2">
@@ -44,7 +62,11 @@
           Mollis tellus malesuada massa amet lacinia aliquamid ultrices vitae.
         </div>
         <div class="content-button">
-          <Button label="Connect Wallet" rounded style="border-radius: 30px" />
+          <Button
+            label="Connect Wallet"
+            rounded
+            style="border-radius: 30px; font-family: 'Inter'"
+          />
         </div>
       </div>
     </div>
@@ -166,80 +188,95 @@
     </div>
     <div class="div-content-3">
       <div class="card">
-        <Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" circular :autoplayInterval="3000">
-            <template #item="slotProps">
-                <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
-                    <div class="mb-3">
-                        <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-6 shadow-2" />
-                    </div>
-                    <div>
-                        <h4 class="mb-1">{{ slotProps.data.name }}</h4>
-                        <h6 class="mt-0 mb-3">${{ slotProps.data.price }}</h6>
-                        <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" />
-                        <div class="mt-5">
-                            <Button icon="pi pi-search" rounded class="mr-2" />
-
-                        </div>
-                    </div>
+        <Carousel
+          :value="products"
+          :numVisible="3"
+          :numScroll="1"
+          :responsiveOptions="responsiveOptions"
+          circular
+          :autoplayInterval="3000"
+        >
+          <template #item="slotProps">
+            <div
+              class="border-1 surface-border border-round m-2 text-center py-5 px-3"
+            >
+              <div class="mb-3">
+                <img
+                  :src="
+                    'https://primefaces.org/cdn/primevue/images/product/' +
+                    slotProps.data.image
+                  "
+                  :alt="slotProps.data.name"
+                  class="w-6 shadow-2"
+                />
+              </div>
+              <div>
+                <h4 class="mb-1">{{ slotProps.data.name }}</h4>
+                <h6 class="mt-0 mb-3">${{ slotProps.data.price }}</h6>
+                <Tag
+                  :value="slotProps.data.inventoryStatus"
+                  :severity="getSeverity(slotProps.data.inventoryStatus)"
+                />
+                <div class="mt-5">
+                  <Button icon="pi pi-search" rounded class="mr-2" />
                 </div>
-            </template>
+              </div>
+            </div>
+          </template>
         </Carousel>
-    </div>
-      
-      
+      </div>
     </div>
     <Footer />
   </div>
 </template>
 
-<style scoped>
+<style>
 @import url(../styles/main.css);
 </style>
 
 <script setup>
 import Button from "primevue/button";
 import { ref, onMounted } from "vue";
-import { ProductService } from '~/services/ProductServices';
+import { ProductService } from "~/services/ProductServices";
 
 onMounted(() => {
-    ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 9)));
-})
+  ProductService.getProductsSmall().then(
+    (data) => (products.value = data.slice(0, 9))
+  );
+});
 
 const products = ref();
 const responsiveOptions = ref([
-    {
-        breakpoint: '1199px',
-        numVisible: 3,
-        numScroll: 3
-    },
-    {
-        breakpoint: '991px',
-        numVisible: 2,
-        numScroll: 2
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 1,
-        numScroll: 1
-    }
+  {
+    breakpoint: "1199px",
+    numVisible: 3,
+    numScroll: 3,
+  },
+  {
+    breakpoint: "991px",
+    numVisible: 2,
+    numScroll: 2,
+  },
+  {
+    breakpoint: "767px",
+    numVisible: 1,
+    numScroll: 1,
+  },
 ]);
 
 const getSeverity = (status) => {
-    switch (status) {
-        case 'INSTOCK':
-            return 'success';
+  switch (status) {
+    case "INSTOCK":
+      return "success";
 
-        case 'LOWSTOCK':
-            return 'warning';
+    case "LOWSTOCK":
+      return "warning";
 
-        case 'OUTOFSTOCK':
-            return 'danger';
+    case "OUTOFSTOCK":
+      return "danger";
 
-        default:
-            return null;
-    }
+    default:
+      return null;
+  }
 };
-
-
-
 </script>

@@ -20,7 +20,7 @@
         </NuxtLink>
       </div>
       <div>
-        <Button label="Connect Wallet" style="color: #0F7DFF; border: 1px solid #0F7DFF; background: none;"/>
+        <Button label="Connect Wallet" style="color: #0F7DFF; border: 1px solid #0F7DFF; background: none; font-family: 'Inter';"/>
       </div>
     </div>
     

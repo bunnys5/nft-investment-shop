@@ -1,9 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
-
-html,
-body {
-  margin: 0px;
-  padding: 0px !important;
+*{
+  margin: 0 !important;
 }
 
 .div-content {
@@ -18,7 +15,7 @@ body {
 
 .div-content-2 {
   width: 100%;
-  height: 500px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,6 +49,12 @@ body {
   display: flex;
   flex-direction: column;
   row-gap: 15px;
+}
+
+.button-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .div-content-text-3 {
