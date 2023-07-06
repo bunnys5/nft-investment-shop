@@ -1,0 +1,31 @@
+.div-content-footer-1 {
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.04);
+  -webkit-backdrop-filter: blur(5.5px)
+}
+
+.div-content-footer-2 {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.content-icon {
+  display: flex;
+  gap: 10px;
+}
+
+
+.footer-text {
+  color: white;
+  font-family: 'Inter';
+  font-weight: 500;
+  width: 250px;
+}
+
+.footer-text-2 {
+  color: white;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 16px;
+}
