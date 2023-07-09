@@ -1,0 +1,12 @@
+html, body {
+  height: 100% !important;
+  padding: 0;
+  background: #080b2a;
+}
+
+.container-1 {
+  margin-top: 70px; /* Adjust this value to match the height of your navbar */
+  padding: 70px;
+  height: auto;
+  background: #080b2a;
+}

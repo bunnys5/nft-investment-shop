@@ -70,123 +70,10 @@
         </div>
       </div>
     </div>
-    <div class="div-content-3">
+    <div class="div-content-3-2">
       <div class="div-content-text-3">
         <div class="text-top-3">TOP COLLECTIONS ยอดฮิตที่ได้รับความนิยม</div>
       </div>
-      <div class="content-3">
-        <div class="content-3-1">
-          <Card
-            style="
-              width: 300px;
-              height: 350px;
-              border-radius: 15px;
-              background: rgba(255, 255, 255, 0.04);
-            "
-          >
-            <template #header>
-              <img alt="user header" src="../assets/pic/2.png" />
-            </template>
-            <template #title> Advanced Card </template>
-            <template #subtitle>Collections</template>
-            <template>Collections </template>
-          </Card>
-        </div>
-        <div class="content-3-1">
-          <Card
-            style="
-              width: 300px;
-              height: 350px;
-              border-radius: 15px;
-              background: rgba(255, 255, 255, 0.04);
-            "
-          >
-            <template #header>
-              <img alt="user header" src="../assets/pic/2.png" />
-            </template>
-            <template #title> Advanced Card </template>
-            <template #subtitle>Collections</template>
-            <template>Collections </template>
-          </Card>
-        </div>
-        <div class="content-3-1">
-          <Card
-            style="
-              width: 300px;
-              height: 350px;
-              border-radius: 15px;
-              background: rgba(255, 255, 255, 0.04);
-            "
-          >
-            <template #header>
-              <img alt="user header" src="../assets/pic/2.png" />
-            </template>
-            <template #title> Advanced Card </template>
-            <template #subtitle>Collections</template>
-            <template>Collections </template>
-          </Card>
-        </div>
-      </div>
-    </div>
-    <div class="div-content-3">
-      <div class="div-content-text-3">
-        <div class="text-top-3">COLLECTIONS ที่อยู่ใกล้คุณ</div>
-      </div>
-      <div class="content-3">
-        <div class="content-3-1">
-          <Card
-            style="
-              width: 300px;
-              height: 350px;
-              border-radius: 15px;
-              background: rgba(255, 255, 255, 0.04);
-            "
-          >
-            <template #header>
-              <img alt="user header" src="../assets/pic/2.png" />
-            </template>
-            <template #title> Advanced Card </template>
-            <template #subtitle>Collections</template>
-            <template>Collections </template>
-          </Card>
-        </div>
-        <div class="content-3-1">
-          <Card
-            style="
-              width: 300px;
-              height: 350px;
-              border-radius: 15px;
-              background: rgba(255, 255, 255, 0.04);
-            "
-          >
-            <template #header>
-              <img alt="user header" src="../assets/pic/2.png" />
-            </template>
-            <template #title> Advanced Card </template>
-            <template #subtitle>Collections</template>
-            <template>Collections </template>
-          </Card>
-        </div>
-        <div class="content-3-1">
-          <Card
-            style="
-              width: 300px;
-              height: 350px;
-              border-radius: 15px;
-              background: rgba(255, 255, 255, 0.04);
-            "
-          >
-            <template #header>
-              <img alt="user header" src="../assets/pic/2.png" />
-            </template>
-            <template #title> Advanced Card </template>
-            <template #subtitle>Collections</template>
-            <template>Collections </template>
-          </Card>
-        </div>
-      </div>
-    </div>
-    <div class="div-content-3">
       <div class="card">
         <Carousel
           :value="products"
@@ -194,31 +81,177 @@
           :numScroll="1"
           :responsiveOptions="responsiveOptions"
           circular
-          :autoplayInterval="3000"
         >
           <template #item="slotProps">
-            <div
-              class="border-1 surface-border border-round m-2 text-center py-5 px-3"
-            >
+            <div class="py-5 px-8">
               <div class="mb-3">
                 <img
                   :src="
                     'https://primefaces.org/cdn/primevue/images/product/' +
                     slotProps.data.image
                   "
+                  :style="{ width: '100%' }"
                   :alt="slotProps.data.name"
-                  class="w-6 shadow-2"
+                  class="shadow-2 border-round"
                 />
               </div>
-              <div>
-                <h4 class="mb-1">{{ slotProps.data.name }}</h4>
-                <h6 class="mt-0 mb-3">${{ slotProps.data.price }}</h6>
+              <div
+                style="
+                  height: 75px;
+                  padding-left: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                  justify-content: center;
+                  border-radius: 15px;
+                  background: rgba(255, 255, 255, 0.04);
+                "
+              >
+                <h4
+                  class=""
+                  style="color: white; font-family: 'Inter'; font-weight: 500"
+                >
+                  Collection:
+                </h4>
+
                 <Tag
                   :value="slotProps.data.inventoryStatus"
                   :severity="getSeverity(slotProps.data.inventoryStatus)"
                 />
-                <div class="mt-5">
-                  <Button icon="pi pi-search" rounded class="mr-2" />
+                <div class="d-flex">
+                  <h4
+                    class=""
+                    style="color: white; font-family: 'Inter'; font-weight: 500"
+                  >
+                    มูลค่า Collection:
+                  </h4>
+                  <!-- <Button icon="pi pi-search" rounded class="mr-2" /> -->
+                </div>
+              </div>
+            </div>
+          </template>
+        </Carousel>
+      </div>
+    </div>
+    <div class="div-content-3-2">
+      <div class="div-content-text-3">
+        <div class="text-top-3">COLLECTIONS ที่อยู่ใกล้คุณ</div>
+      </div>
+      <div class="card">
+        <Carousel
+          :value="products"
+          :numVisible="3"
+          :numScroll="1"
+          :responsiveOptions="responsiveOptions"
+          circular
+        >
+          <template #item="slotProps">
+            <div class="py-5 px-8">
+              <div class="mb-3">
+                <img
+                  :src="
+                    'https://primefaces.org/cdn/primevue/images/product/' +
+                    slotProps.data.image
+                  "
+                  :style="{ width: '100%' }"
+                  :alt="slotProps.data.name"
+                  class="shadow-2 border-round"
+                />
+              </div>
+              <div
+                style="
+                  height: 75px;
+                  padding-left: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                  justify-content: center;
+                  border-radius: 15px;
+                  background: rgba(255, 255, 255, 0.04);
+                "
+              >
+                <h4
+                  class=""
+                  style="color: white; font-family: 'Inter'; font-weight: 500"
+                >
+                  Collection:
+                </h4>
+
+                <Tag
+                  :value="slotProps.data.inventoryStatus"
+                  :severity="getSeverity(slotProps.data.inventoryStatus)"
+                />
+                <div class="d-flex">
+                  <h4
+                    class=""
+                    style="color: white; font-family: 'Inter'; font-weight: 500"
+                  >
+                    มูลค่า Collection:
+                  </h4>
+                  <!-- <Button icon="pi pi-search" rounded class="mr-2" /> -->
+                </div>
+              </div>
+            </div>
+          </template>
+        </Carousel>
+      </div>
+    </div>
+    <div class="div-content-3-2">
+      <div class="div-content-text-3">
+        <div class="text-top-3">COLLECTIONS ที่ยังว่างอยู่</div>
+      </div>
+      <div class="card">
+        <Carousel
+          :value="products"
+          :numVisible="3"
+          :numScroll="1"
+          :responsiveOptions="responsiveOptions"
+          circular
+        >
+          <template #item="slotProps">
+            <div class="py-5 px-8">
+              <div class="mb-3">
+                <img
+                  :src="
+                    'https://primefaces.org/cdn/primevue/images/product/' +
+                    slotProps.data.image
+                  "
+                  :style="{ width: '100%' }"
+                  :alt="slotProps.data.name"
+                  class="shadow-2 border-round"
+                />
+              </div>
+              <div
+                style="
+                  height: 75px;
+                  padding-left: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                  justify-content: center;
+                  border-radius: 15px;
+                  background: rgba(255, 255, 255, 0.04);
+                "
+              >
+                <h4
+                  class=""
+                  style="color: white; font-family: 'Inter'; font-weight: 500"
+                >
+                  Collection:
+                </h4>
+
+                <Tag
+                  :value="slotProps.data.inventoryStatus"
+                  :severity="getSeverity(slotProps.data.inventoryStatus)"
+                />
+                <div class="d-flex">
+                  <h4
+                    class=""
+                    style="color: white; font-family: 'Inter'; font-weight: 500"
+                  >
+                    มูลค่า Collection:
+                  </h4>
+                  <!-- <Button icon="pi pi-search" rounded class="mr-2" /> -->
                 </div>
               </div>
             </div>
