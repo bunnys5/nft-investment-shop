@@ -2,6 +2,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     'Collectionsall': typeof import("../components/Collectionsall.vue")['default']
+    'Devices': typeof import("../components/Devices.vue")['default']
     'Footer': typeof import("../components/Footer.vue")['default']
     'Navbar': typeof import("../components/Navbar.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
@@ -25,6 +26,7 @@ declare module 'vue' {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyCollectionsall': typeof import("../components/Collectionsall.vue")['default']
+    'LazyDevices': typeof import("../components/Devices.vue")['default']
     'LazyFooter': typeof import("../components/Footer.vue")['default']
     'LazyNavbar': typeof import("../components/Navbar.vue")['default']
     'LazyNuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
@@ -51,6 +53,7 @@ declare module 'vue' {
 }
 
 export const Collectionsall: typeof import("../components/Collectionsall.vue")['default']
+export const Devices: typeof import("../components/Devices.vue")['default']
 export const Footer: typeof import("../components/Footer.vue")['default']
 export const Navbar: typeof import("../components/Navbar.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
@@ -74,6 +77,7 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyCollectionsall: typeof import("../components/Collectionsall.vue")['default']
+export const LazyDevices: typeof import("../components/Devices.vue")['default']
 export const LazyFooter: typeof import("../components/Footer.vue")['default']
 export const LazyNavbar: typeof import("../components/Navbar.vue")['default']
 export const LazyNuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
