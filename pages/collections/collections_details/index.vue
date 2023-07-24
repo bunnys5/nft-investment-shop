@@ -39,6 +39,10 @@
     </div>
     <div class="line-2"></div>
     <div class="text-2">Devices ทั้งหมด</div>
+    <div>
+      <Devices/>
+
+    </div>
     
   </div>
   <Footer/>
