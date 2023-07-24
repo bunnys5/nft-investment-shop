@@ -4,8 +4,10 @@
   <div class="container-1">
     <div class="tab-menu">
       <TabMenu
+        
         v-model:activeIndex="active"
         :model="items"
+
         :pt="{
           action: ({ props, state, context }) => ({
             class:
@@ -25,6 +27,7 @@
 
 html,
 body {
+  margin: 0;
   height: 100% !important;
 }
 </style>
@@ -45,6 +48,7 @@ const items = ref([
   {
     label: "Near",
     to: "/edit",
+    
   },
   {
     label: "Avaliable",

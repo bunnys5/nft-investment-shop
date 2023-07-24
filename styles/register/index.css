@@ -1,0 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap');
+html, body {
+  background: #080b2a;
+  height: 100%;
+  font-family: 'Prompt';
+}
+
+.content {
+  width: 600px;
+  height: 800px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.container-2 {
+  height: 100dvh;
+
+}

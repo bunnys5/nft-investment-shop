@@ -1,16 +1,11 @@
 <template>
   <div class="card">
     <DataView :value="products" :layout="layout">
-      <template #header>
-        <div class="flex justify-content-end">
-          <DataViewLayoutOptions v-model="layout" />
-        </div>
-      </template>
 
       <template #list="slotProps">
         <div class="col-12">
-          <div 
-            class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4" 
+          <div
+            class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4"
           >
             <img
               class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round"
@@ -62,42 +57,53 @@
       </template>
 
       <template #grid="slotProps">
-        <div class="col-12 sm:col-6 lg:col-12 xl:col-4 p-2">
-          <div class="p-4 border-1 surface-border surface-card border-round">
+        <div
+          class="col-12 sm:col-6 lg:col-12 xl:col-3 p-2"
+          style="background: #080b2a"
+        >
+          <div class="p-4" style="background-color: none">
             <div
               class="flex flex-wrap align-items-center justify-content-between gap-2"
             >
-              <div class="flex align-items-center gap-2">
-                <i class="pi pi-tag"></i>
-                <span class="font-semibold">{{ slotProps.data.category }}</span>
-              </div>
               <Tag
                 :value="slotProps.data.inventoryStatus"
                 :severity="getSeverity(slotProps.data)"
               ></Tag>
             </div>
-            <div class="flex flex-column align-items-center gap-3 py-5">
+            <div class="flex flex-column align-items-center gap-3 py-3">
               <img
-                class="w-9 shadow-2 border-round"
+                class="w-12 shadow-2 border-round"
                 :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`"
                 :alt="slotProps.data.name"
               />
-              <div class="text-2xl font-bold">{{ slotProps.data.name }}</div>
+
               <Rating
                 value="{product.rating}"
                 readonly
                 :cancel="false"
               ></Rating>
             </div>
-            <div class="flex align-items-center justify-content-between">
-              <span class="text-2xl font-semibold"
-                >${{ slotProps.data.price }}</span
-              >
-              <Button
-                icon="pi pi-shopping-cart"
-                rounded
-                :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"
-              ></Button>
+            <div
+              class="flex flex-column border-round-lg p-3 gap-2"
+              style="border-radius: 15px; background: rgba(255, 255, 255, 0.04)"
+            >
+              <div class="text-sm font-bold text-white text-left w-4">
+                Test1234
+              </div>
+
+              <div class="flex align-items-center gap-2">
+                <div class="flex align-items-center">
+                  <span class="text-xs font-semibold text-white"
+                    >มุลค่า: </span
+                  >
+                  <!-- <Button
+                  icon="pi pi-shopping-cart"
+                  rounded
+                  :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"
+                ></Button> -->
+                </div>
+                <div class="text-white text-xs"> $10,000</div>
+              </div>
             </div>
           </div>
         </div>
@@ -106,19 +112,17 @@
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
 
 <script setup>
 import Button from "primevue/button";
 import { ref, onMounted } from "vue";
 import { ProductService } from "~/services/ProductServices";
-import 'primeflex/primeflex.css';
+import "primeflex/primeflex.css";
 
 onMounted(() => {
   ProductService.getProducts().then(
-    (data) => (products.value = data.slice(0, 15))
+    (data) => (products.value = data.slice(0, 12))
   );
 });
 
