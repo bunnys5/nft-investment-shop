@@ -141,19 +141,21 @@
               >
                 <div class="flex align-items-center">
                   <Checkbox
-                    v-model="checkbox"
+                    v-model="selectedGender"
+                    :disabled="isMaleSelected"
                     inputId="ingredient1"
                     name="pizza"
-                    value="Cheese"
+                    value="male"
                   />
                   <label for="ingredient1" class="ml-2 text-white"> ชาย </label>
                 </div>
                 <div class="flex align-items-center">
                   <Checkbox
-                    v-model="checkbox"
+                    v-model="selectedGender"
+                    :disabled="isFemaleSelected"
                     inputId="ingredient2"
                     name="pizza"
-                    value="Mushroom"
+                    value="famale"
                   />
                   <label for="ingredient2" class="ml-2 text-white">
                     หญิง
@@ -214,8 +216,22 @@ export default {
       birthday: "",
       password: "",
       confirmPassword: "",
-      sex: null,
+      sex: "",
+      selectedGender: null,
+      isMaleSelected: false,
+      isFemaleSelected: false,
     };
+  },
+  watch: {
+    selectedGender(newValue) {
+      if (newValue === "male") {
+        this.isFemaleSelected = true;
+        this.selectedGender = newValue;
+      } else if (newValue === "female") {
+        this.selectedGender = newValue;
+        this.isMaleSelected = true;
+      } 
+    },
   },
   methods: {
     get(target) {
@@ -235,8 +251,21 @@ export default {
           "password:",
           this.password,
           "confirm password:",
-          this.confirmPassword
+          this.confirmPassword,
+          "gender:",
+          this.selectedGender, this.isFemaleSelected
         );
+        // let responseData = await axios.post(`http://localhost:5000/auth/customer/signup`,
+        // {
+        //   citizenId: this.citizenId,
+        //   birthday: this.birthday,
+        //   sex: this.sex,
+        //   name: this.name,
+        //   confirmPassword: this.confirmPassword,
+        //   password: this.password
+        // },
+        // { withCredentials: true }
+        // )
       } catch (error) {
         console.error("Error: " + error);
       }
