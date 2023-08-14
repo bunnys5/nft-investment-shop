@@ -16,6 +16,8 @@ import FileUpload from 'primevue/fileupload';
 import Avatar from 'primevue/avatar';
 import Galleria from 'primevue/galleria';
 import Timeline from 'primevue/timeline';
+import Checkbox from 'primevue/checkbox';
+import Calendar from 'primevue/calendar';
 
 
 export default defineNuxtPlugin(nuxtApp => {
@@ -37,5 +39,8 @@ export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.component('Avatar', Avatar)
     nuxtApp.vueApp.component('Galleria', Galleria)
     nuxtApp.vueApp.component('Timeline', Timeline)
+    nuxtApp.vueApp.component('Checkbox', Checkbox)
+    nuxtApp.vueApp.component('Calendar', Calendar)
+    
     //other components that you need
 })
