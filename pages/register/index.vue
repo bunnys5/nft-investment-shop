@@ -89,53 +89,9 @@
               </div>
             </div>
           </div>
-          <div class="flex flex-column gap-2">
-            <label class="text-white opacity-50" for="username"
-              >บัตรประชาชน</label
-            >
-            <InputText
-              class="border-round-lg text-primary h-3rem"
-              type="username"
-              style="
-                background: rgba(255, 255, 255, 0.1);
-                border: rgba(255, 255, 255, 0.1);
-              "
-              id="username"
-              v-model="citizenId"
-              aria-describedby="username-help"
-            />
-            <small class="text-white" id="username-help"
-              >Enter your username to reset your password.</small
-            >
-          </div>
+
           <div class="flex gap-3">
             <div>
-              <div>
-                <label class="text-white opacity-50" for="username"
-                  >วันเกิด</label
-                >
-              </div>
-              <div class="flex flex-row gap-3">
-                <div class="block">
-                  <div>
-                    <Calendar
-                      class="opacity-50"
-                      style="
-                        background: rgba(255, 255, 255, 0.1);
-                        border: rgba(255, 255, 255, 0.1);
-                      "
-                      v-model="birthday"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div>
-                <label class="text-white opacity-50" for="username"
-                  >บัตรประชาชน</label
-                >
-              </div>
               <div
                 class="card flex flex-wrap gap-3 justify-content-center h-3rem"
               >
@@ -147,19 +103,29 @@
                     name="pizza"
                     value="male"
                   />
-                  <label for="ingredient1" class="ml-2 text-white"> ชาย </label>
-                </div>
-                <div class="flex align-items-center">
-                  <Checkbox
-                    v-model="selectedGender"
-                    :disabled="isFemaleSelected"
-                    inputId="ingredient2"
-                    name="pizza"
-                    value="famale"
-                  />
-                  <label for="ingredient2" class="ml-2 text-white">
-                    หญิง
+                  <label for="ingredient1" class="ml-2 text-white">
+                    เงื่อนไงและข้อกำหนดการใช้บริการ
                   </label>
+                  <Button style="color: #1D4ED8; background-color: none; background: none; border: none; text-decoration: underline;" label="เพิ่มเติม" severity="secondary" @click="visible = true" />
+                  <Dialog
+                    v-model:visible="visible"
+                    header="Privacy Policy"
+                    showHeader = "true"
+                    modal
+                    :style="{ width: '50vw' }"
+                  >
+                  <Privacy/>
+                    <!-- <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                      Duis aute irure dolor in reprehenderit in voluptate velit
+                      esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                      sint occaecat cupidatat non proident, sunt in culpa qui
+                      officia deserunt mollit anim id est laborum.
+                    </p> -->
+                  </Dialog>
                 </div>
               </div>
             </div>
@@ -178,17 +144,7 @@
               label="Sign up"
             />
           </div>
-          <div class="button-group-3 w-full">
-            <Button
-              class="w-full border-round-lg"
-              style="
-                height: 50px;
-                background: rgba(28, 112, 250, 0.7);
-                border: rgba(28, 112, 250, 0.7);
-              "
-              label="Sign in with Cyberpay"
-            />
-          </div>
+
         </div>
         <div class="w-full align-items-center">
           <p class="text-white text-center">
@@ -208,7 +164,13 @@
 </style>
 
 <script>
+import Privacy from '~/components/Privacy.vue'
+
 export default {
+  components: {
+    Privacy
+  },
+
   data() {
     return {
       name: "",
@@ -217,21 +179,9 @@ export default {
       password: "",
       confirmPassword: "",
       sex: "",
-      selectedGender: null,
-      isMaleSelected: false,
-      isFemaleSelected: false,
+      visible: false,
+      // pdfUrl: '../../assets/pdpa/privacy.pdf'
     };
-  },
-  watch: {
-    selectedGender(newValue) {
-      if (newValue === "male") {
-        this.isFemaleSelected = true;
-        this.selectedGender = newValue;
-      } else if (newValue === "female") {
-        this.selectedGender = newValue;
-        this.isMaleSelected = true;
-      } 
-    },
   },
   methods: {
     get(target) {
@@ -253,8 +203,10 @@ export default {
           "confirm password:",
           this.confirmPassword,
           "gender:",
-          this.selectedGender, this.isFemaleSelected
+          this.selectedGender,
+          this.isFemaleSelected
         );
+
         // let responseData = await axios.post(`http://localhost:5000/auth/customer/signup`,
         // {
         //   citizenId: this.citizenId,

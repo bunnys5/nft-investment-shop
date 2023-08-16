@@ -18,6 +18,12 @@ import Galleria from 'primevue/galleria';
 import Timeline from 'primevue/timeline';
 import Checkbox from 'primevue/checkbox';
 import Calendar from 'primevue/calendar';
+import ConfirmDialog from 'primevue/confirmdialog';
+import ConfirmationService from 'primevue/confirmationservice';
+import Dialog from 'primevue/dialog';
+
+
+
 
 
 export default defineNuxtPlugin(nuxtApp => {
@@ -41,6 +47,9 @@ export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.component('Timeline', Timeline)
     nuxtApp.vueApp.component('Checkbox', Checkbox)
     nuxtApp.vueApp.component('Calendar', Calendar)
+    nuxtApp.vueApp.component('ConfirmDialog', ConfirmDialog) 
+    nuxtApp.vueApp.use('ConfirmationService', ConfirmationService)
+    nuxtApp.vueApp.component('Dialog', Dialog)
     
     //other components that you need
 })
