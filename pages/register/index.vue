@@ -47,8 +47,8 @@
               >Enter your username to reset your password.</small
             >
           </div>
-          <div class="flex flex-row gap-3">
-            <div class="block">
+          <div class="w-full flex flex-row gap-3">
+            <div class="w-6 block">
               <div>
                 <label class="text-white opacity-50" for="username"
                   >รหัสผ่าน</label
@@ -57,7 +57,7 @@
               <div>
                 <InputText
                   type="password"
-                  class="border-round-lg text-primary h-3rem"
+                  class="border-round-lg text-primary h-3rem w-full"
                   style="
                     background-color: rgba(255, 255, 255, 0.1);
                     border: rgba(255, 255, 255, 0.1);
@@ -68,7 +68,7 @@
                 />
               </div>
             </div>
-            <div class="block">
+            <div class="w-6 block">
               <div>
                 <label class="text-white opacity-50" for="username"
                   >ยืนยันรหัสผ่าน</label
@@ -77,7 +77,7 @@
               <div>
                 <InputText
                   type="password"
-                  class="border-round-lg text-primary h-3rem"
+                  class="border-round-lg text-primary h-3rem w-full"
                   style="
                     background-color: rgba(255, 255, 255, 0.1);
                     border: rgba(255, 255, 255, 0.1);
@@ -114,7 +114,7 @@
                     modal
                     :style="{ width: '50vw' }"
                   >
-                  <Privacy/>
+                  <Terms/>
                     <!-- <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna

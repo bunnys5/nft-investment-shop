@@ -147,7 +147,7 @@ export default {
         if (userNameCheck) {
           let responseData = (
             await axios.post(
-              `http://localhost:5000/auth/customer/signin`,
+              `http://localhost:3000/auth/customer/signin`,
               {
                 name: this.name,
                 password: this.password,

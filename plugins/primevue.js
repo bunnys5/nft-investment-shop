@@ -21,6 +21,10 @@ import Calendar from 'primevue/calendar';
 import ConfirmDialog from 'primevue/confirmdialog';
 import ConfirmationService from 'primevue/confirmationservice';
 import Dialog from 'primevue/dialog';
+import InputNumber from 'primevue/inputnumber';
+import Chart from 'primevue/chart';
+
+
 
 
 
@@ -50,6 +54,9 @@ export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.component('ConfirmDialog', ConfirmDialog) 
     nuxtApp.vueApp.use('ConfirmationService', ConfirmationService)
     nuxtApp.vueApp.component('Dialog', Dialog)
+    nuxtApp.vueApp.component('Inputnumber', InputNumber)
+    nuxtApp.vueApp.component('Chart', Chart)
+
     
     //other components that you need
 })

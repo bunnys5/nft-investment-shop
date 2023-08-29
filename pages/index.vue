@@ -76,29 +76,28 @@
       </div>
       <div class="card">
         <Carousel
-          :value="products"
+          :value="data1"
           :numVisible="3"
           :numScroll="1"
           :responsiveOptions="responsiveOptions"
           circular
         >
           <template #item="slotProps">
-            <div class="py-5 px-8">
-              <div class="mb-3">
+            <div class="py-5 px-5 h-auto">
+              <!-- <div class="mb-3">
                 <img
                   :src="
-                    'https://primefaces.org/cdn/primevue/images/product/' +
-                    slotProps.data.image
+                    'https://primefaces.org/cdn/primevue/images/product/' 
+                    + slotProps.data.image
                   "
                   :style="{ width: '100%' }"
-                  :alt="slotProps.data.name"
+                  
                   class="shadow-2 border-round"
                 />
-              </div>
+              </div> -->
               <div
+                class="h-auto p-3"
                 style="
-                  height: 75px;
-                  padding-left: 20px;
                   display: flex;
                   flex-direction: column;
                   gap: 5px;
@@ -109,23 +108,39 @@
               >
                 <h4
                   class=""
-                  style="color: white; font-family: 'Inter'; font-weight: 500"
+                  style="color: white; font-family: 'Prompt'; font-weight: 500"
                 >
-                  Collection:
+                  Collection: {{ slotProps.data.name }}
                 </h4>
-
-                <Tag
-                  :value="slotProps.data.inventoryStatus"
-                  :severity="getSeverity(slotProps.data.inventoryStatus)"
-                />
+                <Tag />
                 <div class="d-flex">
                   <h4
                     class=""
-                    style="color: white; font-family: 'Inter'; font-weight: 500"
+                    style="
+                      color: white;
+                      font-family: 'Prompt';
+                      font-weight: 500;
+                    "
                   >
-                    มูลค่า Collection:
+                    มูลค่า Collection: {{ slotProps.data.max_price }}
                   </h4>
                   <!-- <Button icon="pi pi-search" rounded class="mr-2" /> -->
+                </div>
+                <div class="d-flex">
+                  <h4
+                    class=""
+                    style="
+                      color: white;
+                      font-family: 'Prompt';
+                      font-weight: 500;
+                    "
+                  >
+                    เงินขั้นต่ำ {{ slotProps.data.cap_price }}
+                  </h4>
+                  <!-- <Button icon="pi pi-search" rounded class="mr-2" /> -->
+                </div>
+                <div class="flex justify-content-center">
+                  <Button style="font-family: 'Prompt'" label="ดูรายละเอียด" />
                 </div>
               </div>
             </div>
@@ -135,33 +150,32 @@
     </div>
     <div class="div-content-3-2">
       <div class="div-content-text-3">
-        <div class="text-top-3">COLLECTIONS ที่อยู่ใกล้คุณ</div>
+        <div class="text-top-3">COLLECTIONS ใกล้ฉัน</div>
       </div>
       <div class="card">
         <Carousel
-          :value="products"
+          :value="data2"
           :numVisible="3"
           :numScroll="1"
           :responsiveOptions="responsiveOptions"
           circular
         >
           <template #item="slotProps">
-            <div class="py-5 px-8">
-              <div class="mb-3">
+            <div class="py-5 px-5 h-auto">
+              <!-- <div class="mb-3">
                 <img
                   :src="
-                    'https://primefaces.org/cdn/primevue/images/product/' +
-                    slotProps.data.image
+                    'https://primefaces.org/cdn/primevue/images/product/' 
+                    + slotProps.data.image
                   "
                   :style="{ width: '100%' }"
-                  :alt="slotProps.data.name"
+                  
                   class="shadow-2 border-round"
                 />
-              </div>
+              </div> -->
               <div
+                class="h-auto p-3"
                 style="
-                  height: 75px;
-                  padding-left: 20px;
                   display: flex;
                   flex-direction: column;
                   gap: 5px;
@@ -172,23 +186,44 @@
               >
                 <h4
                   class=""
-                  style="color: white; font-family: 'Inter'; font-weight: 500"
+                  style="color: white; font-family: 'Prompt'; font-weight: 500"
                 >
-                  Collection:
+                  Collection: {{ slotProps.data.name }}
                 </h4>
-
-                <Tag
-                  :value="slotProps.data.inventoryStatus"
-                  :severity="getSeverity(slotProps.data.inventoryStatus)"
-                />
+                <Tag />
                 <div class="d-flex">
                   <h4
                     class=""
-                    style="color: white; font-family: 'Inter'; font-weight: 500"
+                    style="
+                      color: white;
+                      font-family: 'Prompt';
+                      font-weight: 500;
+                    "
                   >
-                    มูลค่า Collection:
+                    มูลค่า: {{ slotProps.data.max_price }} บาท
                   </h4>
                   <!-- <Button icon="pi pi-search" rounded class="mr-2" /> -->
+                </div>
+                <div class="d-flex">
+                  <h4
+                    class=""
+                    style="
+                      color: white;
+                      font-family: 'Prompt';
+                      font-weight: 500;
+                    "
+                  >
+                    เงินขั้นต่ำ {{ slotProps.data.cap_price }} บาท
+                  </h4>
+                  <!-- <Button icon="pi pi-search" rounded class="mr-2" /> -->
+                </div>
+                <div class="flex justify-content-center">
+                  <NuxtLink :to="`/collections/${slotProps.data.id}`">
+                    <Button
+                      style="font-family: 'Prompt'"
+                      label="ดูรายละเอียด"
+                    />
+                  </NuxtLink>
                 </div>
               </div>
             </div>
@@ -202,29 +237,28 @@
       </div>
       <div class="card">
         <Carousel
-          :value="products"
+          :value="data3"
           :numVisible="3"
           :numScroll="1"
           :responsiveOptions="responsiveOptions"
           circular
         >
           <template #item="slotProps">
-            <div class="py-5 px-8">
-              <div class="mb-3">
+            <div class="py-5 px-5 h-auto">
+              <!-- <div class="mb-3">
                 <img
                   :src="
-                    'https://primefaces.org/cdn/primevue/images/product/' +
-                    slotProps.data.image
+                    'https://primefaces.org/cdn/primevue/images/product/' 
+                    + slotProps.data.image
                   "
                   :style="{ width: '100%' }"
-                  :alt="slotProps.data.name"
+                  
                   class="shadow-2 border-round"
                 />
-              </div>
+              </div> -->
               <div
+                class="h-auto p-3"
                 style="
-                  height: 75px;
-                  padding-left: 20px;
                   display: flex;
                   flex-direction: column;
                   gap: 5px;
@@ -235,23 +269,39 @@
               >
                 <h4
                   class=""
-                  style="color: white; font-family: 'Inter'; font-weight: 500"
+                  style="color: white; font-family: 'Prompt'; font-weight: 500"
                 >
-                  Collection:
+                  Collection: {{ slotProps.data.name }}
                 </h4>
-
-                <Tag
-                  :value="slotProps.data.inventoryStatus"
-                  :severity="getSeverity(slotProps.data.inventoryStatus)"
-                />
+                <Tag />
                 <div class="d-flex">
                   <h4
                     class=""
-                    style="color: white; font-family: 'Inter'; font-weight: 500"
+                    style="
+                      color: white;
+                      font-family: 'Prompt';
+                      font-weight: 500;
+                    "
                   >
-                    มูลค่า Collection:
+                    มูลค่า: {{ slotProps.data.max_price }} บาท
                   </h4>
                   <!-- <Button icon="pi pi-search" rounded class="mr-2" /> -->
+                </div>
+                <div class="d-flex">
+                  <h4
+                    class=""
+                    style="
+                      color: white;
+                      font-family: 'Prompt';
+                      font-weight: 500;
+                    "
+                  >
+                    เงินขั้นต่ำ {{ slotProps.data.cap_price }} บาท
+                  </h4>
+                  <!-- <Button icon="pi pi-search" rounded class="mr-2" /> -->
+                </div>
+                <div class="flex justify-content-center">
+                  <Button style="font-family: 'Prompt'" label="ดูรายละเอียด" />
                 </div>
               </div>
             </div>
@@ -259,6 +309,7 @@
         </Carousel>
       </div>
     </div>
+
     <Footer />
   </div>
 </template>
@@ -267,49 +318,139 @@
 @import url(../styles/main.css);
 </style>
 
-<script setup>
-import Button from "primevue/button";
-import { ref, onMounted } from "vue";
+<script>
 import { ProductService } from "~/services/ProductServices";
+import axiosConfig from "~/config/axiosConfig";
+import { ref } from "vue";
 
-onMounted(() => {
-  ProductService.getProductsSmall().then(
-    (data) => (products.value = data.slice(0, 9))
-  );
-});
+export default {
+  data() {
+    return {
+      data1: null,
+      data2: null,
+      data3: null,
+      products: null,
+      lat: ref(0),
+      long: ref(0),
 
-const products = ref();
-const responsiveOptions = ref([
-  {
-    breakpoint: "1199px",
-    numVisible: 3,
-    numScroll: 3,
+      responsiveOptions: [
+        {
+          breakpoint: "1199px",
+          numVisible: 3,
+          numScroll: 3,
+        },
+        {
+          breakpoint: "991px",
+          numVisible: 2,
+          numScroll: 2,
+        },
+        {
+          breakpoint: "767px",
+          numVisible: 1,
+          numScroll: 1,
+        },
+      ],
+    };
   },
-  {
-    breakpoint: "991px",
-    numVisible: 2,
-    numScroll: 2,
+
+  mounted() {
+    this.topCollections();
+    this.nearCollections();
+    this.noneCollections();
+
+    ProductService.getProductsSmall().then(
+      (data) => (this.products = data.slice(0, 9))
+    );
   },
-  {
-    breakpoint: "767px",
-    numVisible: 1,
-    numScroll: 1,
+
+  methods: {
+    topCollections: async function () {
+      try {
+        var config = {
+          method: "get",
+          url: "http://localhost:3000/pools?invest=popular",
+        };
+        const responseData = (await axiosConfig(config)).data.data;
+        this.data1 = responseData;
+      } catch (error) {
+        console.log("Catch Error", error);
+      }
+    },
+    nearCollections: async function () {
+      try {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            this.lat = position.coords.latitude;
+            this.long = position.coords.longitude;
+            return this.lat, this.long;
+          });
+        }
+        var config = {
+          method: "get",
+          url:
+            "http://localhost:3000/pools?lat=" +
+            this.lat +
+            "&long=" +
+            this.long,
+        };
+        const responseData = (await axiosConfig(config)).data;
+        this.data2 = responseData.data;
+      } catch (error) {}
+    },
+    noneCollections: async function () {
+      try {
+        var config = {
+          method: "get",
+          url: "http://localhost:3000/pools?invest=none",
+        };
+        const responseData = (await axiosConfig(config)).data.data;
+        this.data3 = responseData;
+        console.log(this.data3);
+      } catch (error) {
+        console.log("Error", error);
+      }
+    },
   },
-]);
-
-const getSeverity = (status) => {
-  switch (status) {
-    case "INSTOCK":
-      return "success";
-
-    case "LOWSTOCK":
-      return "warning";
-
-    case "OUTOFSTOCK":
-      return "danger";
-
-    default:
-      return null;
-  }
 };
+
+// onMounted(() => {
+//   ProductService.getProductsSmall().then(
+//     (data) => (products.value = data.slice(0, 9))
+//   );
+// });
+
+// const products = ref();
+// const responsiveOptions = ref([
+//   {
+//     breakpoint: "1199px",
+//     numVisible: 3,
+//     numScroll: 3,
+//   },
+//   {
+//     breakpoint: "991px",
+//     numVisible: 2,
+//     numScroll: 2,
+//   },
+//   {
+//     breakpoint: "767px",
+//     numVisible: 1,
+//     numScroll: 1,
+//   },
+// ]);
+
+// const getSeverity = (status) => {
+//   switch (status) {
+//     case "INSTOCK":
+//       return "success";
+
+//     case "LOWSTOCK":
+//       return "warning";
+
+//     case "OUTOFSTOCK":
+//       return "danger";
+
+//     default:
+//       return null;
+//   }
+// };
 </script>
